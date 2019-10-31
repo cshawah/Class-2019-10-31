@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(googlesheets4)
 library(tidyverse)
+library(rstanarm)
 
 ```
 
@@ -18,5 +19,28 @@ library(tidyverse)
 sheets_deauth()
 train <- read_sheet("1QV7o63fiZdNtMtLQfdwREapf8eYDjpfSRX0dgfNrB8A")
 
+ggplot(train, aes(x = att_end, y = att_start)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+train %>% 
+  group_by(liberal) %>% 
+  summarize(avg = mean(att_start))
+
+train %>% 
+  group_by(male) %>% 
+  summarize(avg = mean(att_start))
+
+train %>% 
+  group_by(republican) %>% 
+  summarize(avg = mean(att_start))
+
+train %>% 
+  group_by(treatment) %>% 
+  summarize(avg = mean(att_start))
+
+train %>%
+  ggplot(aes(x = as.factor(liberal), y = att_start)) +
+  geom_boxplot()
 ```
 
