@@ -42,5 +42,21 @@ train %>%
 train %>%
   ggplot(aes(x = as.factor(liberal), y = att_start)) +
   geom_boxplot()
+
 ```
+```{r}
+train %>% 
+  ggplot(aes(republican, att_start)) + geom_jitter(width = 0.1) + geom_smooth(method = "lm")
+
+ggplot(train, aes(x = income, y = att_start)) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+
+ggplot(train, aes(x = age, y = att_start)) +
+  geom_jitter() +
+  geom_smooth(method = "lm")
+```
+
+
+
 
