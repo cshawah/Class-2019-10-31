@@ -1,0 +1,22 @@
+---
+title: "Halloween Class"
+author: "Chloe Shawah"
+date: "10/31/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googlesheets4)
+library(tidyverse)
+
+```
+
+```{r}
+
+sheets_deauth()
+train <- read_sheet("1QV7o63fiZdNtMtLQfdwREapf8eYDjpfSRX0dgfNrB8A")
+
+```
+
